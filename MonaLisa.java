@@ -34,10 +34,21 @@ public class MonaLisa  extends Application {
             }
         }
         ImageView targetImageView = new ImageView(targetImage);
+        ImageView topRightImageView = new ImageView(targetImage);
+        ImageView bottomLeftImageView = new ImageView(targetImage);
+        ImageView bottomRightImageView = new ImageView(targetImage);
+        topRightImageView.setTranslateX(width/2);
+        bottomLeftImageView.setTranslateY(height/2);
+        bottomRightImageView.setTranslateX(width/2);
+        bottomRightImageView.setTranslateY(height/2);
 
 
         Pane pane = new Pane();
-        pane.getChildren().addAll(initialImageView, targetImageView);
+        pane.getChildren().addAll(initialImageView,
+                        targetImageView,
+                        topRightImageView,
+                        bottomLeftImageView,
+                        bottomRightImageView);
 
         Scene scene = new Scene(pane);
         window.setScene(scene);

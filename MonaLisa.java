@@ -29,7 +29,7 @@ public class MonaLisa  extends Application {
                 double blue = initialImageColor.getBlue();
                 double opacity = initialImageColor.getOpacity();
                 // Apply that color to the target image (which is half the size)
-                Color targetColor = new Color(red, green, blue, opacity);
+                Color targetColor = new Color(1-red, 1-green, 1-blue, opacity);
                 targetPixelWriter.setColor(x, y, targetColor);
             }
         }

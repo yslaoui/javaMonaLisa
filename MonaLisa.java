@@ -17,18 +17,32 @@ public class MonaLisa  extends Application {
         int width = (int) initialImage.getWidth();
         int height = (int) initialImage.getHeight();
 
-
+        // Creating the target image and its writer
+        WritableImage targetImage = new WritableImage(width/2, height/2);
+        PixelWriter targetPixelWriter = targetImage.getPixelWriter();
+        for (int y=0; y<height/2; y++) {
+            for (int x=0; x<width/2; x++) {
+                // Extract the color from initial image reader at position (x,y)
+                Color initialImageColor = initialImageReader.getColor(2*x, 2*y);
+                double red = initialImageColor.getRed();
+                double green = initialImageColor.getGreen();
+                double blue = initialImageColor.getBlue();
+                double opacity = initialImageColor.getOpacity();
+                // Apply that color to the target image (which is half the size)
+                Color targetColor = new Color(red, green, blue, opacity);
+                targetPixelWriter.setColor(x, y, targetColor);
+            }
+        }
+        ImageView targetImageView = new ImageView(targetImage);
 
 
         Pane pane = new Pane();
-        pane.getChildren().addAll(initialImageView);
+        pane.getChildren().addAll(initialImageView, targetImageView);
 
         Scene scene = new Scene(pane);
         window.setScene(scene);
 
         window.show();
-
-
     }
 
     public static void main(String[] args) {

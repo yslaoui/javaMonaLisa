@@ -1,4 +1,4 @@
-package monaLisa;
+package javaMonaLisa;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,7 +11,7 @@ public class MonaLisa  extends Application {
     @Override
     public void start(Stage window) throws Exception {
         // Loading initial image and its reader
-        Image initialImage = new Image("file:src/main/java/monaLisa/lisa.jpg");
+        Image initialImage = new Image("file:src/main/java/javaMonaLisa/lisa.jpg", 600, 600, true, true);
         ImageView initialImageView = new ImageView(initialImage);
         PixelReader initialImageReader = initialImage.getPixelReader();
         int width = (int) initialImage.getWidth();
